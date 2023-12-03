@@ -1,0 +1,29 @@
+# Install Omada Controller 5.13.22 on Ubuntu 22
+
+# Install Java
+apt-get install jsvc
+
+# Instal CURL
+apt-get install curl
+
+# Install net-tools
+apt install net-tools
+
+# Download Libssl 1.1 
+wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.0g-2ubuntu4_amd64.deb
+
+#Install Libssl 1.1
+sudo dpkg -i libssl1.1_1.1.0g-2ubuntu4_amd64.deb
+
+# Add mongo 4.4 repo to Ubuntu
+echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-4.4.gpg ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+
+# Install Mongo 4.4 DB
+sudo apt-get install -y mongodb-org=4.4.25 mongodb-org-server=4.4.25 mongodb-org-shell=4.4.25 mongodb-org-mongos=4.4.25 mongodb-org-tools=4.4.25
+
+# Download Omada Controller software 5.13
+wget https://static.tp-link.com/upload/software/2023/202312/20231201/Omada_SDN_Controller_v5.13.22_Linux_x64.deb
+
+# Install Controller Software
+sudo dpkg -i Omada_SDN_Controller_v5.13.22_Linux_x64.deb
+
